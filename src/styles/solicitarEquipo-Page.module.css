@@ -1,0 +1,60 @@
+.divContenedor{
+	display: flex;
+	justify-content: center;
+	background-color: rgb(36, 36, 36);
+}
+
+.divEspacios{
+	text-align: left;
+	margin-left: 5%;
+}
+
+.divPrincipal{
+	text-align: center;
+	min-width: 50%;
+	background-color: white;
+}
+
+.divBotones{
+	display: flex;
+	justify-content: space-evenly;
+	margin: 1%;
+}
+
+.divBotones button{
+	min-width: 200px;
+	max-width: 15%;
+}
+
+.divH3{
+	width: 100%;
+	text-align: left;
+	padding: 0% 2%;
+	margin: 0px;
+}
+
+.formulario{
+	text-align: left;
+	padding: 0% 10%;
+}
+
+.formularioDiv{
+	margin: 10px 0px;
+}
+
+.formularioDiv span{
+	margin-right: 10px;
+}
+
+.formulario select{
+	font-size: 16px;
+}
+
+.largeText{
+	width: 100%;
+	min-height: 5rem;
+	vertical-align: top;
+	resize: none;
+	font-size: 12;
+	font-family: Arial, Helvetica, sans-serif;
+}

@@ -1,0 +1,19 @@
+.tabla{
+	color: black;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.tabla thead tr{
+	background-color: cyan;
+}
+
+.tabla th,
+.tabla td{
+	border: 2px solid black;
+	padding: 12px 15px;
+}
+
+.tabla tbody tr:nth-of-type(even){
+	background-color: rgb(180,180,180);
+}

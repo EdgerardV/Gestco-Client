@@ -1,0 +1,20 @@
+.divPrincipal{
+	display: flex;
+}
+
+.divInfoNoneSelected{
+	font-size: 1.5rem;
+	display: flex;
+	color: rgb(125,125,125);
+	background-color: rgb(225, 225, 225);
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+}
+
+.divInfoSelected{
+	color: white;
+	background-color: rgb(225, 225, 225);
+	width: 100%;
+	height: auto;
+}

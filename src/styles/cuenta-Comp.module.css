@@ -1,0 +1,40 @@
+.butonLogin{
+	color: white;
+	font-weight: bold;
+	background-color: blue;
+	min-width: 150px;
+	min-height: 50px;
+	border-radius: 45px;
+	border-width: 3px;
+	border-color: white;
+	margin: 10px;
+	border-style: solid;
+}
+
+.buton:hover{
+	color: black;
+	background-color: white;
+	border-color: blue;
+}
+
+.imgUser{
+	width: 20%;
+	height: auto;
+}
+.divPerfil{
+}
+.btnUsuario{
+	display: block;
+	width: 50%;
+	margin: 0% 25%;
+	height: 50px;
+	background-color: rgb(239, 239, 0);
+}
+
+.btnSalir{
+	display: block;
+	width: 40%;
+	margin: 0% 30%;
+	height: 50px;
+	background-color: rgb(255, 140, 0);
+}

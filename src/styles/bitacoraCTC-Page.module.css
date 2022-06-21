@@ -1,0 +1,62 @@
+.divContenedor{
+	display: flex;
+	justify-content: center;
+	background-color: rgb(36, 36, 36);
+}
+
+.divPrincipal{
+	text-align: center;
+	width: 75%;
+	background-color: gray;
+}
+
+.divBotones{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	width: 96%;
+	margin: 2%;
+}
+
+.divBotones button{
+	margin: 1% 0%;
+	min-width: 25%;
+	max-width: 25%;
+}
+
+.divH3{
+	width: 100%;
+	text-align: left;
+	padding: 0% 2%;
+}
+
+.tabla{
+	color: black;
+	background-color: white;
+	border-collapse: collapse;
+	width: 98%;
+	margin: 1%;
+}
+
+.tabla thead tr{
+	background-color: cyan;
+}
+
+.tabla th,
+.tabla td{
+	border: 2px solid black;
+	padding: 3px;
+	text-align: left;
+	min-width: 60px;
+}
+
+.tabla tbody tr:nth-of-type(even){
+	background-color: rgb(225, 225, 225);
+}
+
+.tabla th,
+.tabla tbody td:nth-of-type(6),
+.tabla tbody td:last-of-type{
+	max-width: 100px;
+	text-align: center;
+}

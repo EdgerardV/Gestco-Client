@@ -1,0 +1,18 @@
+.divBotones{
+	width: 25%;
+	height: 100%;
+	background-color: rgb(50, 50, 50);
+}
+
+.botones{
+	display: block;
+	width: 80%;
+	margin: 10%;
+}
+
+.botonSelect{
+	display: block;
+	width: 80%;
+	margin: 10%;
+	background-color: rgb(239, 239, 0);
+}
