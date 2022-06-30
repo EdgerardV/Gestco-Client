@@ -5,7 +5,13 @@ import { useNavigate } from 'react-router-dom';
 import styles from '../styles/cuenta-Comp.module.css'
 import imagenUsuario from '../images/logo512.png'
 
+// Ubicacion = 0 : Menu principal
+// Ubicacion = 1 : Navbar
 export function Cuenta(props){
+	let estilosPerfil = [styles.divPerfil,styles.divPerfilNavbar];
+	let estilosUsuario = [styles.btnUsuario,styles.btnUsuarioNavbar];
+	let estilosSalir = [styles.btnSalir,styles.btnSalirNavbar];
+	let estilosFoto = [styles.imgUser,styles.imgUserNavbar];
 
 	const navigate = useNavigate();
 	const toLogin = () =>{
@@ -13,15 +19,20 @@ export function Cuenta(props){
 	}
 
 	const toHome = () =>{
+		if(props.ubicacion === "1"){
+			props.setEntrar(false);
+		}
 		navigate("/");
 	}
 
 	if(props.ingreso){
 		return(
-			<div className={styles.divPerfil}>
-				<img className={styles.imgUser} src={imagenUsuario} alt="imagen del usuario" />
-				<button className={styles.btnUsuario} type="button">Usuario x</button>
-				<button className={styles.btnSalir} type="button" onClick={toHome}>Salir</button>
+			<div className={estilosPerfil[props.ubicacion]}>
+				<img className={estilosFoto[props.ubicacion]} src={imagenUsuario} alt="imagen del usuario" />
+				<div className={styles.botones}>
+					<button className={estilosUsuario[props.ubicacion]} type="button">Usuario x</button>
+					<button className={estilosSalir[props.ubicacion]} type="button" onClick={toHome}>Salir</button>
+				</div>
 			</div>
 		);
 	}else{

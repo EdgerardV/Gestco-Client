@@ -14,9 +14,13 @@ export function NavbarComp(props){
 
 	return(
 		<div className={styles.divPrincipal}>
-			<img onClick={toHome} className={styles.img_logoUNID} src={logoUNID} alt="logo unid" />
+			<div className={styles.divImagen}>
+				<img onClick={toHome} className={styles.img_logoUNID} src={logoUNID} alt="logo unid" />
+			</div>
 			<div className={styles.divTItulo}>Gestco</div>
-			<Cuenta ingreso={props.ingresado} />
+			<div className={styles.divCuenta}>
+				<Cuenta ingreso={props.entrado} setEntrar={props.setEntrar} ubicacion="1"/>
+			</div>
 		</div>
 	);
 }

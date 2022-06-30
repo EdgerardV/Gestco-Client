@@ -4,15 +4,30 @@
 	background-color: rgb(50, 50, 50);
 }
 
+.botones,
+.botonSelect{
+	border-radius: 45px;
+	height: 10%;
+	font-size: 20px;
+	border-width: 5px;
+}
+
 .botones{
 	display: block;
 	width: 80%;
 	margin: 10%;
+	background-color: lightgray;
 }
 
 .botonSelect{
 	display: block;
 	width: 80%;
 	margin: 10%;
-	background-color: rgb(239, 239, 0);
+	background-color: #ffb500;
+	font-size: 25px;
+}
+
+.botones:hover{
+	background-color: white;
+	font-size: 25px;
 }

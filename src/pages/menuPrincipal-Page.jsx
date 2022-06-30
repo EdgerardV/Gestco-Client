@@ -1,7 +1,17 @@
-// Styles
+//Modules
 import { useNavigate } from "react-router-dom";
 import { Cuenta } from "../components/cuenta-Comp";
+
+// Styles
 import styles from "../styles/menuPrincipal-Page.module.css"
+
+// icons
+import equiposIcon from "../images/equipos_icon.png"
+import solicitudesEquipoIcon from "../images/SolicitudesEquipo_icon.png"
+import solicitudesMantenimientoIcon from "../images/SolicitudesMantenimiento_icon.png"
+import GenerarReportesIcon from "../images/GenerarReportes_icon.png"
+import BitacoraCTCsIcon from "../images/BitacoraCTCs_icon.png"
+
 // Code
 export function MenuPrincipal(){
 	const navigate = useNavigate();
@@ -28,14 +38,29 @@ export function MenuPrincipal(){
 	return(
 		<div className={styles.divPrincipal}>
 			<div className={styles.divOpciones}>
-				<button className={styles.botones} type="button" onClick={toEquipos}>Equipos</button>
-				<button className={styles.botones} type="button" onClick={toSoliEquip}>Solicitudes de equipo</button>
-				<button className={styles.botones} type="button" onClick={toSoliMante}>Solicitudes de mantenimiento</button>
-				<button className={styles.botones} type="button" onClick={toReportes}>Generar Reportes</button>
-				<button className={styles.botones} type="button" onClick={toBitacoraCTC}>Bitácora de CTC's</button>
+				<button className={styles.botones} type="button" onClick={toEquipos}>
+					<span>Equipos</span>
+					<img className={styles.icon} src={equiposIcon} alt="Icono Equipos"/>
+				</button>
+				<button className={styles.botones} type="button" onClick={toSoliEquip}>
+					<span>Solicitudes de equipo</span>
+					<img className={styles.icon} src={solicitudesEquipoIcon} alt="Icono Solicitudes de Equipo"/>
+				</button>
+				<button className={styles.botones} type="button" onClick={toSoliMante}>
+					<span>Solicitudes de mantenimiento</span>
+					<img className={styles.icon} src={solicitudesMantenimientoIcon} alt="Icono Solicitudes de Mantnimiento" />
+				</button>
+				<button className={styles.botones} type="button" onClick={toReportes}>
+					<span>Generar Reportes</span>
+					<img className={styles.icon} src={GenerarReportesIcon} alt="Icono Generar Reportes"/>
+				</button>
+				<button className={styles.botones} type="button" onClick={toBitacoraCTC}>
+					<span>Bitácora de CTC's</span>
+					<img className={styles.icon} src={BitacoraCTCsIcon} alt="Icono Bitácora de CTCs"/>
+				</button>
 			</div>
 			<div className={styles.divPerfil}>
-				<Cuenta ingreso={true} />
+				<Cuenta ingreso={true} ubicacion="0" />
 			</div>
 		</div>
 	);

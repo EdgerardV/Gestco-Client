@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="45"
+   height="45"
+   viewBox="0 0 11.90625 11.90625"
+   version="1.1"
+   id="svg2484"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   sodipodi:docname="SolicitudesEquipo_icon.svg"
+   inkscape:export-filename="C:\Users\gerav\Documents\Personal\Trabajo\UNID\Sistema de Mantenimiento\gestco-client\src\images\SolicitudesEquipo_icon.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview2486"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:zoom="11.516947"
+     inkscape:cx="8.4223708"
+     inkscape:cy="20.969098"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <sodipodi:guide
+       position="5.9960551,10.022432"
+       orientation="1,0"
+       id="guide2558" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2481" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       d="m 11.547071,3.3107099 c -0.0037,-0.015836 -0.0037,-0.032009 0,-0.047845 -0.0031,-0.013815 -0.0031,-0.028134 0,-0.041949 v -0.05391 l -0.03908,-0.089794 c -0.016,-0.024428 -0.03589,-0.046666 -0.05896,-0.065703 l -0.0588,-0.048014 h -0.03268 L 8.7814836,1.4732193 6.349298,0.0964914 C 6.293029,0.0555534 6.2286743,0.0250604 6.1597706,0.0066975 h -0.052394 c -0.058458,-0.00893 -0.1180965,-0.00893 -0.1765554,0 h -0.065365 c -0.07598,0.015331 -0.1487581,0.041612 -0.2158087,0.077833 l -4.8839132,2.7832747 -0.0587959,0.041949 -0.058964,0.047845 -0.0653659,0.041949 -0.032683,0.035884 -0.039253,0.089794 v 0.053742 0.036052 c -0.00623,0.03959 -0.00623,0.080023 0,0.1196129 v 5.225568 c -1.6849e-4,0.1015871 0.027966,0.2018259 0.0817069,0.2907774 0.053742,0.088952 0.13140573,0.1640888 0.22557988,0.2179986 l 4.90362412,2.7772099 0.098049,0.03605 h 0.052394 c 0.1106844,0.03201 0.2292863,0.03201 0.3399704,0 h 0.052394 l 0.098048,-0.03605 4.8643712,-2.7354299 c 0.09417,-0.05391 0.171838,-0.1288788 0.22558,-0.2178304 0.05374,-0.08912 0.08188,-0.1891905 0.08171,-0.2909458 V 3.3765815 c 0,0 0.01297,-0.041949 0.01297,-0.065872 z M 5.9961885,1.305593 7.1599715,1.9639694 3.5052074,4.0349576 2.334854,3.3765811 Z M 5.3423608,10.283974 1.7463921,8.2727927 V 4.4480434 L 5.3423608,6.4831476 Z M 5.9961885,5.4297115 4.7474969,4.7413477 8.4022612,2.6642946 9.6576912,3.3765811 Z M 10.245984,8.2549351 6.6500162,10.302002 V 6.4831476 L 10.245984,4.4480434 Z"
+       fill="#000000"
+       id="path52"
+       style="stroke-width:0.168469" />
+  </g>
+</svg>

@@ -11,12 +11,15 @@ export function Home(){
 	const toRegistrarCTC = () => {
 		navigate("/ctc/registrar");
 	}
+
 	return (
 		<div className={styles.fondo}>
-			<h1>Iniciar Sesión</h1>
+			<div>
+				<h1>Iniciar Sesión</h1>
+			</div>
 			<div className={styles.divBotones}>
-				<button className={styles.botones} type='button' onClick={toLogin}>Iniciar Sesión</button>
-				<button className={styles.botones} type='button' onClick={toRegistrarCTC}>Registrar CTC</button>
+				<button className={`${styles.botones} ${styles.loginBtn}`} type='button' onClick={toLogin}>Iniciar Sesión</button>
+				<button className={`${styles.botones} ${styles.registrarBtn}`} type='button' onClick={toRegistrarCTC}>Registrar CTC</button>
 			</div>
 		</div>
 	);

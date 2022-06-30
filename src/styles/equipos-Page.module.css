@@ -1,5 +1,6 @@
 .divPrincipal{
 	display: flex;
+	height: calc(100% - 100px);
 }
 
 .divInfoNoneSelected{
@@ -7,6 +8,7 @@
 	display: flex;
 	color: rgb(125,125,125);
 	background-color: rgb(225, 225, 225);
+	height: 100%;
 	width: 100%;
 	align-items: center;
 	justify-content: center;
@@ -17,4 +19,5 @@
 	background-color: rgb(225, 225, 225);
 	width: 100%;
 	height: auto;
+	overflow: auto;
 }
