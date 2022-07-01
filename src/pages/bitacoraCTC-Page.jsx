@@ -4,10 +4,14 @@ import { useNavigate } from "react-router-dom";
 //	Styles
 import styles from "../styles/bitacoraCTC-Page.module.css"
 
-export function BitacoraCTC(){
+export function BitacoraCTC(props){
 	const navigate = useNavigate();
-	const toMenuPrincipal = () =>{
-		navigate("/menu-principal")
+	const regresar = () =>{
+		if(props.sesion.acceso){
+			navigate("/menu-principal");
+		}else{
+			navigate("/");
+		}
 	}
 
 	const registrarse = () => {
@@ -75,7 +79,7 @@ export function BitacoraCTC(){
 
 				<div className={styles.divBotones}>
 					<button type="button" onClick={registrarse}>Registrarse</button>
-					<button type="button" onClick={toMenuPrincipal}>Regresar</button>
+					<button type="button" onClick={regresar}>Regresar</button>
 				</div>
 			</div>
 		</div>

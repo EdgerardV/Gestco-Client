@@ -19,18 +19,23 @@ export function Cuenta(props){
 	}
 
 	const toHome = () =>{
-		if(props.ubicacion === "1"){
-			props.setEntrar(false);
-		}
+		props.setSesion({
+			idCuenta: "",
+			idPersonal: "",
+			nombres: "",
+			aPaterno: "",
+			aMaterno: "",
+			acceso: false
+		});
 		navigate("/");
 	}
 
-	if(props.ingreso){
+	if(props.sesion.acceso){
 		return(
 			<div className={estilosPerfil[props.ubicacion]}>
 				<img className={estilosFoto[props.ubicacion]} src={imagenUsuario} alt="imagen del usuario" />
 				<div className={styles.botones}>
-					<button className={estilosUsuario[props.ubicacion]} type="button">Usuario x</button>
+					<button className={estilosUsuario[props.ubicacion]} type="button">{props.sesion.nombres}</button>
 					<button className={estilosSalir[props.ubicacion]} type="button" onClick={toHome}>Salir</button>
 				</div>
 			</div>

@@ -19,7 +19,7 @@ export function NavbarComp(props){
 			</div>
 			<div className={styles.divTItulo}>Gestco</div>
 			<div className={styles.divCuenta}>
-				<Cuenta ingreso={props.entrado} setEntrar={props.setEntrar} ubicacion="1"/>
+				<Cuenta sesion={props.sesion} setSesion={props.setSesion} ubicacion="1"/>
 			</div>
 		</div>
 	);

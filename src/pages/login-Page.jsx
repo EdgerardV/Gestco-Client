@@ -1,16 +1,22 @@
 //	Dependencies
 import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
 //Styles
 import styles from '../styles/login-Page.module.css'
 
 //Functions
-export function LogIn(){
+export function LogIn(props){
 	const [cuenta, setCuenta] = useState(["",""]);
-
 	const [textoP, setTextoP] = useState("");
+	const { redireccion } = useParams();
+
+	const navigate = useNavigate();
 
 	useEffect(() => {
+		if(redireccion !== undefined){
+			setTextoP("Primero: Debe iniciar sesion")
+		}
 		const peticion = async () =>{
 			let res = await fetch('http://localhost:3001/login',{
 				method: "GET",
@@ -21,8 +27,9 @@ export function LogIn(){
 			})
 			let coincide = await res.json();
 	
-			if(coincide.respuesta){
-				console.log("entras " + coincide.respuesta);
+			if(coincide.acceso){
+				props.setSesion(coincide)
+				navigate("/menu-principal")
 			}else{
 				setTextoP("Usuario o contraseña incorrectos");
 			}
@@ -33,18 +40,17 @@ export function LogIn(){
 		}
 
 		return() =>{}
-	},[cuenta])
+	},[cuenta, props, navigate, redireccion])
 	
 	const handleSubmit = async ev => {
 		ev.preventDefault()
 		if(ev.target.usuario.value === "" || ev.target.password.value === ""){
 			setTextoP("Ingrese el usuario y la contraseña");
-			console.log("no hay texto")
 		}else{
 			setCuenta([ev.target.usuario.value, ev.target.password.value])
 		}
 	}
-	
+
 	return(
 		<div className={styles.fondo}>
 			<div>

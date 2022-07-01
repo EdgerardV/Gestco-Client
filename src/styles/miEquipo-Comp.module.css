@@ -5,15 +5,19 @@
 }
 
 .tabla thead tr{
-	background-color: cyan;
+	background-color: #ffb500;
 }
 
 .tabla th,
 .tabla td{
 	border: 2px solid black;
-	padding: 12px 15px;
+	padding: 10px 12px;
 }
 
 .tabla tbody tr:nth-of-type(even){
-	background-color: rgb(180,180,180);
+	background-color: white;
+}
+.tabla tbody tr:hover{
+	background-color: #08001d;
+	color: #ffb500;
 }

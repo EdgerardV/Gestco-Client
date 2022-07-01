@@ -1,6 +1,6 @@
 .divPrincipal{
 	display: flex;
-	height: calc(100% - 100px);
+	height: calc(100% - 105px);
 }
 
 .divInfoNoneSelected{

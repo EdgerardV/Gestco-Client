@@ -1,12 +1,15 @@
 //	Styles
+import { useEffect } from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { EquipoSideBar } from "../components/equipoSideBar-Comp";
 import { MasEquipos } from "../components/masEquipos-Comp";
 import { MiEquipo } from "../components/miEquipo-Comp";
 import styles from "../styles/equipos-Page.module.css"
 
-export function Equipos(){
+export function Equipos(props){
 	const [seleccion, setSeleccion] = useState(0)
+	const navigate = useNavigate();
 
 	const estiloDivInfo = () => {
 		if(seleccion === 0){
@@ -24,12 +27,18 @@ export function Equipos(){
 		setSeleccion(2)
 	}
 
+	useEffect(()=>{
+		if(!props.sesion.acceso){
+			navigate("/log-in/a")
+		}
+	},[navigate,props]);
+
 	const DivRespuesta = () =>{
 		switch(seleccion){
 			case 1:
-				return(<MiEquipo />);
+				return(<MiEquipo sesion={props.sesion} />);
 			case 2:
-				return(<MasEquipos />);
+				return(<MasEquipos sesion={props.sesion} />);
 			default:
 				return(
 					<p>

@@ -11,9 +11,10 @@ import solicitudesEquipoIcon from "../images/SolicitudesEquipo_icon.png"
 import solicitudesMantenimientoIcon from "../images/SolicitudesMantenimiento_icon.png"
 import GenerarReportesIcon from "../images/GenerarReportes_icon.png"
 import BitacoraCTCsIcon from "../images/BitacoraCTCs_icon.png"
+import { useEffect } from "react";
 
 // Code
-export function MenuPrincipal(){
+export function MenuPrincipal(props){
 	const navigate = useNavigate();
 	const toEquipos = () =>{
 		navigate("/equipos")
@@ -34,6 +35,13 @@ export function MenuPrincipal(){
 	const toBitacoraCTC = () =>{
 		navigate("/ctc/bitacora")
 	}
+	
+	useEffect(()=>{
+		if(!props.sesion.acceso){
+			navigate("/log-in/a")
+		}
+		return ()=>{}
+	},[navigate,props])
 
 	return(
 		<div className={styles.divPrincipal}>
@@ -60,7 +68,7 @@ export function MenuPrincipal(){
 				</button>
 			</div>
 			<div className={styles.divPerfil}>
-				<Cuenta ingreso={true} ubicacion="0" />
+				<Cuenta sesion={props.sesion} setSesion={props.setSesion} ubicacion="0" />
 			</div>
 		</div>
 	);

@@ -1,7 +1,33 @@
+//	Dependencies
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 //	Styles
 import styles from "../styles/miEquipo-Comp.module.css"
 
-export function MiEquipo(){
+export function MiEquipo(props){
+	const [equipo, setEquipo] = useState(["","","",""]);
+	const navigate = useNavigate()
+	useEffect(()=>{
+		const peticion = async () =>{
+			let res = await fetch('http://localhost:3001/miequipo',{
+				method: "GET",
+				headers : {
+					id: props.sesion.idPersonal
+				}
+			})
+			const reslt = await res.json();
+			setEquipo(reslt)
+		}
+
+		if(props.sesion.acceso){
+			peticion()
+		}else{
+			navigate('/log-in/a')
+		}
+	},[navigate,props])
+
 	return (
 		<table className={styles.tabla}>
 			<thead>
@@ -14,27 +40,25 @@ export function MiEquipo(){
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>id 1</td>
-					<td>Dispositivo 1</td>
-					<td>Marca 1</td>
-					<td>Modelo 1</td>
-					<td>Fecha 1</td>
-				</tr>
-				<tr>
-					<td>id 2</td>
-					<td>Dispositivo 2</td>
-					<td>Marca 2</td>
-					<td>Modelo 2</td>
-					<td>Fecha 2</td>
-				</tr>
-				<tr>
-					<td>id 3</td>
-					<td>Dispositivo 3</td>
-					<td>Marca 3</td>
-					<td>Modelo 3</td>
-					<td>Fecha 3</td>
-				</tr>
+				{
+					equipo.map((value,index)=>{
+						let fechaAdqui;
+						if(value.fechaAdquisición === null){
+							fechaAdqui = "indefinido";
+						}else{
+							fechaAdqui = value.fechaAdquisición
+						}
+						return(
+							<tr key={index}>
+								<td>{value.idDispositivo}</td>
+								<td>{value.descripcion}</td>
+								<td>{value.marca}</td>
+								<td>{value.modelo}</td>
+								<td>{fechaAdqui}</td>
+							</tr>
+						)
+					})
+				}
 			</tbody>
 		</table>
 	);

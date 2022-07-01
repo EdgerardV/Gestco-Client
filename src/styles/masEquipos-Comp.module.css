@@ -1,3 +1,4 @@
+
 .tabla{
 	color: black;
 	border-collapse: collapse;
@@ -5,19 +6,36 @@
 }
 
 .tabla thead tr{
-	background-color: cyan;
+	background-color: #ffb500;
 }
 
 .tabla th,
 .tabla td{
 	border: 2px solid black;
-	padding: 12px 15px;
+	padding: 8px;
+	min-width: 100px;
 }
 
 .tabla tbody tr:nth-of-type(even){
-	background-color: rgb(180, 180, 180);
+	background-color: white;
 }
 
+.tabla tbody tr:hover{
+	background-color: #08001d;
+	color: #ffb500;
+}
+
+.tabla tbody td:first-of-type,
 .tabla tbody td:last-of-type{
 	text-align: center;
+}
+
+.buton{
+	font-size: 18px;
+	background-color: #b89bff;
+	border-radius: 40px;
+	padding: 7px;
+}
+.buton:hover{
+	background-color: #ffb500;
 }

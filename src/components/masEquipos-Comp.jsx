@@ -1,59 +1,63 @@
 //	Dependencies
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 //	Styles
 import styles from "../styles/masEquipos-Comp.module.css"
 
-export function MasEquipos(){
+export function MasEquipos(props){
+	const [equipos,setEquipos] = useState([{}])
+
 	const navigate = useNavigate();
-	let idElement = "equipo1";
+	
+	useEffect(()=>{
+		const peticion = async () =>{
+			let res = await fetch('http://localhost:3001/encargados')
+			const reslt = await res.json();
+			setEquipos(reslt)
+		}
+
+		if(props.sesion.acceso){
+			peticion()
+		}else{
+			navigate('/log-in/a')
+		}
+	},[navigate,props])
+
 	return(
-		<table className={styles.tabla}>
-			<thead>
-				<tr>
-					<th>Id</th>
-					<th>Encargado</th>
-					<th>Departamento</th>
-					<th>Puesto</th>
-					<th>Más Información</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>id 1</td>
-					<td>Encargado 1</td>
-					<td>Departamento 1</td>
-					<td>Puesto 1</td>
-					<td>
-						<button type="button" onClick={() => {
-							navigate("/equipos/" + idElement)
-						}}>
-						Más Información
-						</button>
-					</td>
-				</tr>
-				<tr>
-					<td>id 2</td>
-					<td>Encargado 2</td>
-					<td>Departamento 2</td>
-					<td>Puesto 2</td>
-					<td><button type="button">Más Información</button></td>
-				</tr>
-				<tr>
-					<td>id 3</td>
-					<td>Encargado 3</td>
-					<td>Departamento 3</td>
-					<td>Puesto 3</td>
-					<td><button type="button">Más Información</button></td>
-				</tr>
-				<tr>
-					<td>id 4</td>
-					<td>Encargado 4</td>
-					<td>Departamento 4</td>
-					<td>Puesto 4</td>
-					<td><button type="button">Más Información</button></td>
-				</tr>
-			</tbody>
-		</table>
+		<div className={styles.divPrincipal}>
+			<table className={styles.tabla}>
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Encargado</th>
+						<th>Departamento</th>
+						<th>Puesto</th>
+						<th>Más Información</th>
+					</tr>
+				</thead>
+				<tbody>
+					{
+						equipos.map((value,index)=>{
+							return(
+								<tr key={index}>
+									<td>{value.idEquipo}</td>
+									<td>{value.nombres + " " + value.apellidoP + " " + value.apellidoM}</td>
+									<td>{value.departamento}</td>
+									<td>{value.puesto}</td>
+									<td>
+									<button className={styles.buton} type="button" onClick={() => {
+										navigate("/equipos/" + value.idEquipo)
+									}}>
+									Más Información
+									</button>
+									</td>
+								</tr>
+							)
+						})
+					}
+				</tbody>
+			</table>
+		</div>
 	);
 }
