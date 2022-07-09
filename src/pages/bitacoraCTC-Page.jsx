@@ -25,7 +25,7 @@ export function BitacoraCTC(props){
 
 	useEffect(()=>{
 		const peticion = async () => {
-			let res = await fetch("http://localhost:3001/bitacoraCTC/registros",{
+			let res = await fetch(`http://${process.env.REACT_APP_API_HOST}:${process.env.REACT_APP_API_PORT}/bitacoraCTC/registros`,{
 				method: "GET"
 			})
 			let data = await res.json();
@@ -103,7 +103,7 @@ async function registrarSalida(registro){
 	let tmp = {
 		id: registro
 	}
-	let res = await fetch("http://localhost:3001/bitacoraCTC/salir",{
+	let res = await fetch(`http://${process.env.REACT_APP_API_HOST}:${process.env.REACT_APP_API_PORT}/bitacoraCTC/salir`,{
 		method: "PUT",
 		headers: {
 			'Content-Type': 'application/json'

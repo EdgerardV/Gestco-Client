@@ -11,7 +11,7 @@ export function EquipoMasInformacion(props){
 
 	useEffect(()=>{
 		const peticion = async () =>{
-			let res = await fetch('http://localhost:3001/equipo',{
+			let res = await fetch(`http://${process.env.REACT_APP_API_HOST}:${process.env.REACT_APP_API_PORT}/equipo`,{
 				method: "GET",
 				headers : {
 					id: props.equipo.idEquipo

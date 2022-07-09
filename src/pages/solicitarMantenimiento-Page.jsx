@@ -21,7 +21,7 @@ export function SolicitarMantenimiento(props){
 			descripcion: ev.target.descripcion.value
 		}
 		
-		const res = await fetch('http://localhost:3001/solicitar/mantenimiento',{
+		const res = await fetch(`http://${process.env.REACT_APP_API_HOST}:${process.env.REACT_APP_API_PORT}/solicitar/mantenimiento`,{
 			method: "POST",
 			headers: {
 				'Content-Type': 'application/json;charset=utf-8'

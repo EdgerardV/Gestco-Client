@@ -11,7 +11,7 @@ export function MasEquipos(props){
 	
 	useEffect(()=>{		
 		const peticion = async () =>{
-			let res = await fetch('http://localhost:3001/encargados')
+			let res = await fetch(`http://${process.env.REACT_APP_API_HOST}:${process.env.REACT_APP_API_PORT}/encargados`)
 			const reslt = await res.json();
 			setEquipos(reslt)
 		}

@@ -19,7 +19,7 @@ export function SolicitarEquipo(props){
 			mes: ev.target.meses.value,
 		}
 		
-		const res = await fetch('http://localhost:3001/solicitar/equipo',{
+		const res = await fetch(`http://${process.env.REACT_APP_API_HOST}:${process.env.REACT_APP_API_PORT}/solicitar/equipo`,{
 			method: "POST",
 			headers: {
 				'Content-Type': 'application/json;charset=utf-8'

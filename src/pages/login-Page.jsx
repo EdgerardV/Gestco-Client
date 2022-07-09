@@ -19,7 +19,7 @@ export function LogIn(props){
 		}
 
 		const peticion = async () =>{
-			let res = await fetch("http://localhost:3001/login",{
+			let res = await fetch(`http://${process.env.REACT_APP_API_HOST}:${process.env.REACT_APP_API_PORT}/login`,{
 				method: "GET",
 				headers : {
 					usuario : cuenta[0],

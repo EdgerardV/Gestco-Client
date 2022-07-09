@@ -22,7 +22,7 @@ export function SolicitudesEquipo(props){
 
 	useEffect(()=>{
 		const peticion = async () => {
-			let res = await fetch("http://localhost:3001/solicitudes/equipo",{
+			let res = await fetch(`http://${process.env.REACT_APP_API_HOST}:${process.env.REACT_APP_API_PORT}/solicitudes/equipo`,{
 				method: "GET",
 				headers : {
 					idcuenta: props.sesion.idCuenta
@@ -103,7 +103,7 @@ function Informacion(props){
 }
 
 async function eliminarSolicitud(idEliminar){
-	let res = await fetch("http://localhost:3001/solicitar/equipo",{
+	let res = await fetch(`http://${process.env.REACT_APP_API_HOST}:${process.env.REACT_APP_API_PORT}/solicitar/equipo`,{
 		method: "DELETE",
 		headers : {
 			id: idEliminar

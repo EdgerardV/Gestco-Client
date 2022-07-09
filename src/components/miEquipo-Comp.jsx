@@ -10,7 +10,7 @@ export function MiEquipo(props){
 	const navigate = useNavigate()
 	useEffect(()=>{
 		const peticion = async () =>{
-			let res = await fetch('http://localhost:3001/encargados/equipo',{
+			let res = await fetch(`http://${process.env.REACT_APP_API_HOST}:${process.env.REACT_APP_API_PORT}/encargados/equipo`,{
 				method: "GET",
 				headers : {
 					id: props.sesion.idPersonal
