@@ -1,10 +1,14 @@
 //	Dependencies
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"
 
 //	Styles
 import styles from "../styles/solicitudesMantenimiento-Page.module.css"
 
-export function SolicitudesMantenimiento(){
+export function SolicitudesMantenimiento(props){
+	const [solicitudes, setSolicitudes] = useState();
+	const [refrescar, setRefrescar] = useState(false);
+
 	const navigate = useNavigate();
 	
 	const toMenuPrincipal = () =>{
@@ -15,53 +19,84 @@ export function SolicitudesMantenimiento(){
 		navigate("/mantenimiento/solicitar")
 	}
 
+	useEffect(()=>{
+		const peticion = async () => {
+			let res = await fetch("http://localhost:3001/solicitudes/mantenimiento",{
+				method: "GET",
+				headers : {
+					idpersonal: props.sesion.idPersonal
+				}
+			})
+			let data = await res.json();
+			setSolicitudes(data);
+		}
+
+		if(props.sesion.acceso){
+			peticion()
+		}else{
+			navigate("/log-in/a");
+		}
+	},[props, navigate, refrescar])
+
+	if(solicitudes === undefined){
+		return(<div>Cargando...</div>)
+	}
 
 	return (
 		<div className={styles.divContenedor}>
+			<div className={styles.divBotones}>
+				<button type="button" onClick={toSolicitarMantenimiento}>Nueva Solicitud</button>
+				<button type="button" onClick={toMenuPrincipal}>Regresar</button>
+			</div>
 			<div className={styles.divPrincipal}>
 				<div className={styles.divH3}>
 					<h3>Mantenimiento Solicitado</h3>
 				</div>
-				<table className={styles.tabla}>
-					<thead>
-						<tr>
-							<th>Tipo de Problema</th>
-							<th>Condición</th>
-							<th>Descripción</th>
-							<th>Fecha</th>
-							<th>Cancelar Solicitud</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>Mecánico</td>
-							<td>Crítico</td>
-							<td>Descripción del material solicitado 1</td>
-							<td>Fecha 1</td>
-							<td><button type="button">Cancelar</button></td>
-						</tr>
-						<tr>
-							<td>Eléctrico</td>
-							<td>Medio</td>
-							<td>Descripción del material solicitado 2</td>
-							<td>Fecha 2</td>
-							<td><button type="button">Cancelar</button></td>
-						</tr>
-						<tr>
-							<td>Software</td>
-							<td>Normal</td>
-							<td>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</td>
-							<td>18/06/2022</td>
-							<td><button type="button">Cancelar</button></td>
-						</tr>
-					</tbody>
-				</table>
-
-				<div className={styles.divBotones}>
-					<button type="button" onClick={toSolicitarMantenimiento}>Nueva Solicitud</button>
-					<button type="button" onClick={toMenuPrincipal}>Regresar</button>
+				<div className={styles.divTabla}>
+					<table className={styles.tabla}>
+						<thead>
+							<tr>
+								<th>Tipo de Problema</th>
+								<th>Condición</th>
+								<th>Descripción</th>
+								<th>Cancelar Solicitud</th>
+							</tr>
+						</thead>
+						<tbody>
+							{
+								solicitudes.map((value,index)=>{
+									return(
+										<tr key={index}>
+											<td>{value.problema}</td>
+											<td>{value.condicion}</td>
+											<td>{value.descripcion}</td>
+											<td><button type="button" onClick={()=>{
+												eliminarSolicitud(value.idInformeMantenimiento)
+												setRefrescar(!refrescar);
+											}}>Cancelar</button></td>
+										</tr>		
+									);
+								})
+							}
+						</tbody>
+					</table>
 				</div>
 			</div>
 		</div>
 	);
+}
+
+async function eliminarSolicitud(idEliminar){
+	let res = await fetch("http://localhost:3001/solicitar/mantenimiento",{
+		method: "DELETE",
+		headers : {
+			id: idEliminar
+		}
+	})
+
+	if(res.ok > 0){
+		alert("Eliminado");
+	}else{
+		alert("No se eliminó ningun elemento")
+	}
 }

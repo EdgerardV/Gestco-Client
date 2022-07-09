@@ -8,8 +8,8 @@ export function Home(){
 		navigate("/log-in");
 	}
 
-	const toRegistrarCTC = () => {
-		navigate("/ctc/registrar");
+	const toBitacoraCTC = () => {
+		navigate("/ctc/bitacora");
 	}
 
 	return (
@@ -19,7 +19,7 @@ export function Home(){
 			</div>
 			<div className={styles.divBotones}>
 				<button className={`${styles.botones} ${styles.loginBtn}`} type='button' onClick={toLogin}>Iniciar Sesión</button>
-				<button className={`${styles.botones} ${styles.registrarBtn}`} type='button' onClick={toRegistrarCTC}>Registrar CTC</button>
+				<button className={`${styles.botones} ${styles.registrarBtn}`} type='button' onClick={toBitacoraCTC}>Bitácora de CTCs</button>
 			</div>
 		</div>
 	);

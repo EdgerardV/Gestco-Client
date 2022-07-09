@@ -6,7 +6,6 @@ import styles from "../styles/equipoSideBar-Comp.module.css"
 
 export function EquipoSideBar(props){
 	const navigate = useNavigate();
-
 	const toMenuPrincipal = () => {
 		navigate("/menu-principal")
 	}

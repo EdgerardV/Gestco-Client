@@ -11,7 +11,6 @@ import { LogIn } from './pages/login-Page';
 import { NavbarComp } from './components/navbar-Comp';
 import { MenuPrincipal } from './pages/menuPrincipal-Page';
 import { Equipos } from './pages/equipos-Page';
-import { EquipoMasInformacion } from './pages/equipoMasInformacion-Page';
 import { SolicitudesEquipo } from './pages/solicitudesEquipo-Page';
 import { SolicitarEquipo } from './pages/solicitarEquipo-Page';
 import { SolicitudesMantenimiento } from './pages/solicitudesMantenimeinto-Page';
@@ -47,12 +46,11 @@ export function Root(){
 					<Route path='/log-in/:redireccion' element={<LogIn setSesion={setSesion} />} />
 					<Route path='/menu-principal' element={<MenuPrincipal sesion={sesion} setSesion={setSesion} />} />
 					<Route path='/equipos' element={<Equipos sesion={sesion} />} />
-					<Route path='/equipos/:equipo' element={<EquipoMasInformacion />} />
-					<Route path='/equipo/solicitudes' element={<SolicitudesEquipo />} />
-					<Route path='/equipo/solicitar' element={<SolicitarEquipo />} />
-					<Route path='/mantenimiento/solicitudes' element={<SolicitudesMantenimiento />} />
-					<Route path='/mantenimiento/solicitar' element={<SolicitarMantenimiento />} />
-					<Route path='/reportes' element={<Reportes />} />
+					<Route path='/equipo/solicitudes' element={<SolicitudesEquipo sesion={sesion} />} />
+					<Route path='/equipo/solicitar' element={<SolicitarEquipo sesion={sesion} />} />
+					<Route path='/mantenimiento/solicitudes' element={<SolicitudesMantenimiento sesion={sesion} />} />
+					<Route path='/mantenimiento/solicitar' element={<SolicitarMantenimiento sesion={sesion} />} />
+					<Route path='/reportes' element={<Reportes sesion={sesion} />} />
 					<Route path='/ctc/bitacora' element={<BitacoraCTC sesion={sesion} />} />
 					<Route path='/ctc/registrar' element={<RegistroCTC />} />
 					<Route path='/*' element={<div>404 not found</div>} />

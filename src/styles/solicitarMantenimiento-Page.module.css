@@ -2,6 +2,7 @@
 	display: flex;
 	justify-content: center;
 	background-color: rgb(36, 36, 36);
+	height: calc(100% - 105px);
 }
 
 .divEspacios{
@@ -18,7 +19,7 @@
 .divBotones{
 	display: flex;
 	justify-content: space-evenly;
-	margin: 1%;
+	margin: 5%;
 }
 
 .divBotones button{
@@ -40,7 +41,7 @@
 }
 
 .formularioDiv{
-	margin: 10px 0px;
+	margin: 10% 0px;
 }
 
 .formularioDiv span{
@@ -58,4 +59,14 @@
 	resize: none;
 	font-size: 16px;
 	font-family: Arial, Helvetica, sans-serif;
+}
+
+.botonRegresar{
+	background-color: #ff3200;
+	border-radius: 45px;
+}
+
+.botonSolicitar{
+	background-color: #ffb500;
+	border-radius: 45px;
 }

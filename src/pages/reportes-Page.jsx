@@ -1,39 +1,48 @@
 //	Dependencies
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom"
 
 //	Styles
 import styles from "../styles/reportes-Page.module.css"
 
 //	Code
-export function Reportes(){
+export function Reportes(props){
 	const navigate = useNavigate();
 
 	const toMenuPrincipal = () => {
 		navigate("/menu-principal")
 	}
+	
+	useEffect(()=>{
+		if(!props.sesion.acceso){
+			navigate("/log-in/a");
+		}
+	},[props, navigate])
+
 
 	return (
 		<div className={styles.divContenedor}>
+			<div className={styles.divBotones}>
+					<button type="button" onClick={toMenuPrincipal}>Regresar</button>
+				</div>
 			<div className={styles.divPrincipal}>
 				<div className={styles.divH3}>
 					<h3>Generar Reportes</h3>
 				</div>
 				<div className={styles.seccionDiv}>
-					<span>Formato: </span>
-					<select>
-						<option value="1">PDF</option>
-					</select>
-				</div>
-				<div className={styles.seccionDiv}>
 					<div>Periodo:</div>
-					<div>
-						<span>desde: </span>
-						<input type="date" />
-					</div>
-					<div>
-						<span>hasta: </span>
-						<input type="date" />
-					</div>
+					<table className={styles.tabla}>
+						<tbody>
+							<tr>
+								<td>desde: </td>
+								<td><input type="date" /></td>
+							</tr>
+							<tr>
+								<td>hasta:</td>
+								<td><input type="date" /></td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 				<div className={styles.seccionDiv}>
 					<div>
@@ -69,9 +78,6 @@ export function Reportes(){
 							</tr>
 						</tbody>
 					</table>
-				</div>
-				<div className={styles.divBotones}>
-					<button type="button" onClick={toMenuPrincipal}>Regresar</button>
 				</div>
 			</div>
 		</div>

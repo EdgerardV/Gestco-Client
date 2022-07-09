@@ -1,62 +1,89 @@
 .divContenedor{
 	display: flex;
-	justify-content: center;
 	background-color: rgb(36, 36, 36);
+	height: calc(100% - 105px);
 }
 
 .divPrincipal{
 	text-align: center;
-	max-width: 60%;
-	min-width: min-content;
-	background-color: gray;
+	background-color: rgb(225, 225, 225);
 }
 
 .divBotones{
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	width: 96%;
-	margin: 2%;
+	min-width: 200px;
+	width: 20%;
+	margin: 0% 4%;
 }
 
 .divBotones button{
-	margin: 1% 0%;
-	min-width: 25%;
-	max-width: 25%;
+	margin: 10%;
+	padding: 5%;
+	border-radius: 45px;
+	border-color: black;
+	border-width: 3px;
 }
 
 .divH3{
-	width: 100%;
+	width: 96%;
 	text-align: left;
 	padding: 0% 2%;
 }
 
+.divTabla{
+	height: 85%;
+	display: block;
+	overflow: auto;
+	border: solid black;
+	border-left: 5px;
+	border-right: 5px;
+	background-color: white;
+}
+
 .tabla{
 	color: black;
-	background-color: white;
 	border-collapse: collapse;
 	width: 98%;
 	margin: 1%;
 }
 
 .tabla thead tr{
-	background-color: cyan;
-	width: 100px;
+	background-color: #ffb500;
+}
+
+.tabla td{
+	text-align: left;
+}
+
+.tabla tbody{
+	max-height: 100px;
+	overflow: auto;
+}
+
+.tabla tbody tr:nth-of-type(even){
+	background-color: rgb(150, 150, 150);
+}
+.tabla tbody tr:hover{
+	background-color: #08001d;
+	color: #ffb500;
 }
 
 .tabla th,
 .tabla td{
 	border: 2px solid black;
-	padding: 3px;
-	text-align: left;
-}
-
-.tabla tbody tr:nth-of-type(even){
-	background-color: rgb(225, 225, 225);
+	padding: 10px 12px;
 }
 
 .tabla th,
 .tabla tbody td:last-of-type,
 .tabla tbody td:first-of-type{
 	text-align: center;
+}
+
+.tabla button{
+	border: solid black;
+	border-radius: 45px;
+	background-color: #ff3200;
 }

@@ -17,8 +17,9 @@ export function LogIn(props){
 		if(redireccion !== undefined){
 			setTextoP("Primero: Debe iniciar sesion")
 		}
+
 		const peticion = async () =>{
-			let res = await fetch('http://localhost:3001/login',{
+			let res = await fetch("http://localhost:3001/login",{
 				method: "GET",
 				headers : {
 					usuario : cuenta[0],

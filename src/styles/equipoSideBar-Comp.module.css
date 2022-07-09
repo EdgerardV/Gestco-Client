@@ -6,10 +6,10 @@
 
 .botones,
 .botonSelect{
-	border-radius: 45px;
 	height: 10%;
 	font-size: 20px;
 	border-width: 5px;
+	border-radius: 45px;
 }
 
 .botones{

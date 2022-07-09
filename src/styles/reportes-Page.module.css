@@ -1,30 +1,31 @@
 .divContenedor{
 	display: flex;
-	justify-content: center;
 	background-color: rgb(36, 36, 36);
-}
-
-.divEspacios{
-	text-align: left;
-	margin-left: 5%;
+	height: calc(100% - 105px);
 }
 
 .divPrincipal{
 	text-align: center;
 	min-width: 50%;
-	background-color: rgb(200, 200, 200);
+	background-color: white;
 }
 
 .divBotones{
 	display: flex;
-	justify-content: space-evenly;
-	margin: 1%;
+	align-items: center;
+	flex-direction: column;
+	width: 15%;
+	margin: 5% 5%;
 }
 
 .divBotones button{
-	min-width: 200px;
-	max-width: 15%;
-	margin: 5%;
+	display: block;
+	width: 100%;
+	height: 10%;
+	background-color: lightgray;
+	border-width: 5px;
+	border-radius: 45px;
+	font-size: 20px;
 }
 
 .divH3{
@@ -36,37 +37,43 @@
 
 .seccionDiv{
 	text-align: left;
-	margin: 3% 10%;
+	margin: 5% 10%;
 }
 
-
 .tabla{
-	width: 100%;
+	color: black;
 	border-collapse: collapse;
+	width: 98%;
+	margin: 1%;
+}
+
+.tabla thead tr{
+	background-color: #ffb500;
+}
+
+.tabla tbody tr:nth-of-type(even){
+	background-color: lightgray;
+}
+
+.tabla tbody tr:hover{
+	background-color: #08001d;
+	color: #ffb500;
 }
 
 .tabla th,
 .tabla td{
-	margin: 50px;
-	border: 3px solid black;
-	background-color: white;
+	border: 2px solid black;
+	padding: 0px 15px;
 }
 
-.tabla th{
+.tabla th,
+.tabla tbody td:last-of-type{
 	text-align: center;
 }
 
-.seccionDiv select,
-.seccionDiv input,
-.seccionDiv span{
-	font-size: 18px;
-}
-
-
-.tabla td{
-	font-size: 18px;
-}
-
-.tabla td:last-of-type{
-	text-align: center;
+.tabla td button{
+	background-color: #ffb500;
+	margin: 10px;
+	border-width: 3px;
+	border-radius: 45px;
 }

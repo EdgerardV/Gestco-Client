@@ -1,5 +1,6 @@
 .divContenedor{
 	display: flex;
+	height: calc(100% - 105px);
 	justify-content: center;
 	background-color: rgb(36, 36, 36);
 }
@@ -22,8 +23,18 @@
 }
 
 .divBotones button{
-	min-width: 200px;
-	max-width: 15%;
+	min-width: 150px;
+	margin: 5% 0px;
+}
+
+.botonRegresar{
+	background-color: #ff3200;
+	border-radius: 45px;
+}
+
+.botonSolicitar{
+	background-color: #ffb500;
+	border-radius: 45px;
 }
 
 .divH3{
@@ -41,7 +52,9 @@
 .formularioDiv{
 	margin: 10px 0px;
 }
-
+.cantidadInput{
+	max-width: 20%;
+}
 .formularioDiv span{
 	margin-right: 10px;
 }

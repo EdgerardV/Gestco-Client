@@ -6,9 +6,12 @@ import { EquipoSideBar } from "../components/equipoSideBar-Comp";
 import { MasEquipos } from "../components/masEquipos-Comp";
 import { MiEquipo } from "../components/miEquipo-Comp";
 import styles from "../styles/equipos-Page.module.css"
+import { EquipoMasInformacion } from "./equipoMasInformacion-Page";
 
 export function Equipos(props){
 	const [seleccion, setSeleccion] = useState(0)
+	const [equipo,setEquipo] = useState([{}])
+
 	const navigate = useNavigate();
 
 	const estiloDivInfo = () => {
@@ -26,6 +29,10 @@ export function Equipos(props){
 	const seleccionarMasEquipos = () =>{
 		setSeleccion(2)
 	}
+	
+	const seleccionarMasInformacion = () =>{
+		setSeleccion(3)
+	}
 
 	useEffect(()=>{
 		if(!props.sesion.acceso){
@@ -38,7 +45,9 @@ export function Equipos(props){
 			case 1:
 				return(<MiEquipo sesion={props.sesion} />);
 			case 2:
-				return(<MasEquipos sesion={props.sesion} />);
+				return(<MasEquipos sesion={props.sesion} seleccionarMasInformacion={seleccionarMasInformacion} setEquipo={setEquipo} />);
+			case 3:
+				return(<EquipoMasInformacion equipo={equipo} sesion={props.sesion}/>)
 			default:
 				return(
 					<p>

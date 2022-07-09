@@ -1,6 +1,5 @@
 //	Dependencies
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 //	Styles
@@ -11,7 +10,7 @@ export function MiEquipo(props){
 	const navigate = useNavigate()
 	useEffect(()=>{
 		const peticion = async () =>{
-			let res = await fetch('http://localhost:3001/miequipo',{
+			let res = await fetch('http://localhost:3001/encargados/equipo',{
 				method: "GET",
 				headers : {
 					id: props.sesion.idPersonal

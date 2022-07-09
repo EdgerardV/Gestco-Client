@@ -1,10 +1,15 @@
 //	Dependencies
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 //	Styles
 import styles from "../styles/bitacoraCTC-Page.module.css"
+import { extraerHora } from "../utils/fecha";
 
 export function BitacoraCTC(props){
+	const [solicitudes, setSolicitudes] = useState();
+	const [refrescar, setRefrescar] = useState(false);
+
 	const navigate = useNavigate();
 	const regresar = () =>{
 		if(props.sesion.acceso){
@@ -18,76 +23,93 @@ export function BitacoraCTC(props){
 		navigate("/ctc/registrar")
 	}
 
+	useEffect(()=>{
+		const peticion = async () => {
+			let res = await fetch("http://localhost:3001/bitacoraCTC/registros",{
+				method: "GET"
+			})
+			let data = await res.json();
+			setSolicitudes(data);
+		}
+
+		peticion()
+	},[props, navigate, refrescar])
+
+	if(solicitudes === undefined){
+		return(<div>Cargando...</div>)
+	}
 
 	return (
 		<div className={styles.divContenedor}>
+			<div className={styles.divBotones}>
+				<button type="button" onClick={registrarse}>Registrarse</button>
+				<button type="button" onClick={regresar}>Regresar</button>
+			</div>
 			<div className={styles.divPrincipal}>
 				<div className={styles.divH3}>
 					<h3>Bitácora CTC's</h3>
 				</div>
-				<table className={styles.tabla}>
-					<thead>
-						<tr>
-							<th>ID</th>
-							<th>Nombre</th>
-							<th>Licenciatura</th>
-							<th>CTC</th>
-							<th>Fecha</th>
-							<th>Hora de entrada</th>
-							<th>Hora de salida</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>00000001</td>
-							<td>Nombre(s) aPaterno aMaterno</td>
-							<td>Licenciatura 1</td>
-							<td>CTC-1</td>
-							<td>Fecha 1</td>
-							<td>horaE 1</td>
-							<td>horaS 1</td>
-						</tr>
-						<tr>
-							<td>00000002</td>
-							<td>Nombre(s) aPaterno aMaterno</td>
-							<td>Licenciatura 2</td>
-							<td>CTC-2</td>
-							<td>Fecha 2</td>
-							<td>horaE 2</td>
-							<td>horaS 2</td>
-						</tr>
-						<tr>
-							<td>00000003</td>
-							<td>Nombre(s) aPaterno aMaterno</td>
-							<td>Licenciatura 3</td>
-							<td>CTC-3</td>
-							<td>21/06/2022</td>
-							<td>9:00</td>
-							<td>10:00</td>
-						</tr>
-						<tr>
-							<td>00000004</td>
-							<td>Nombre(s) aPaterno aMaterno</td>
-							<td>Ingeniería en sistemas Computacionales</td>
-							<td>CTC-1</td>
-							<td>21/06/2022</td>
-							<td>16:00</td>
-							<td><MarcarSalida /></td>
-						</tr>
-					</tbody>
-				</table>
-
-				<div className={styles.divBotones}>
-					<button type="button" onClick={registrarse}>Registrarse</button>
-					<button type="button" onClick={regresar}>Regresar</button>
+				<div className={styles.divTabla}>
+					<table className={styles.tabla}>
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Nombre</th>
+								<th>Licenciatura</th>
+								<th>CTC</th>
+								<th>Hora de entrada</th>
+								<th>Hora de salida</th>
+							</tr>
+						</thead>
+						<tbody>
+							{
+								solicitudes.map((value,index)=>{
+									return(
+										<tr key={index}>
+											<td>{value.matricula}</td>
+											<td>{value.nombres}</td>
+											<td>{value.licenciatura}</td>
+											<td>{value.idCTC}</td>
+											<td>{extraerHora(value.horaEntrada)}</td>
+											<td><HoraSalidaComp id={value.idBitacoraCTCs} hora={value.horaSalida} setRefrescar={setRefrescar} refrescar={refrescar} /></td>
+										</tr>
+									);
+								})
+							}
+						</tbody>
+					</table>
 				</div>
 			</div>
 		</div>
 	);
 }
 
-function MarcarSalida(){
-	return(
-		<button type="button">Salir</button>
-	);
+function HoraSalidaComp(props){
+	if(props.hora === null){
+		return(
+			<button type="button" onClick={()=>{
+				registrarSalida(props.id)
+				props.setRefrescar(!props.refrescar);
+			}}>Salir</button>
+		);
+	}else{
+		return(
+			extraerHora(props.hora)
+		);
+	}
+}
+
+async function registrarSalida(registro){
+	let tmp = {
+		id: registro
+	}
+	let res = await fetch("http://localhost:3001/bitacoraCTC/salir",{
+		method: "PUT",
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body : JSON.stringify(tmp)
+	})
+
+	return res.ok;
 }

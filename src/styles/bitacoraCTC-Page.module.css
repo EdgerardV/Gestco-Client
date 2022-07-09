@@ -1,27 +1,31 @@
 .divContenedor{
 	display: flex;
-	justify-content: center;
 	background-color: rgb(36, 36, 36);
+	height: calc(100% - 105px);
 }
 
 .divPrincipal{
 	text-align: center;
-	width: 75%;
-	background-color: gray;
+	width: 80%;
+	background-color: rgb(225, 225, 225);
 }
 
 .divBotones{
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	width: 96%;
-	margin: 2%;
+	width: 15%;
 }
 
 .divBotones button{
-	margin: 1% 0%;
-	min-width: 25%;
-	max-width: 25%;
+	display: block;
+	width: 90%;
+	height: 10%;
+	margin: 5%;
+	background-color: lightgray;
+	border-width: 5px;
+	border-radius: 45px;
+	font-size: 20px;
 }
 
 .divH3{
@@ -30,33 +34,63 @@
 	padding: 0% 2%;
 }
 
+.divTabla{
+	height: 85%;
+	display: block;
+	overflow: auto;
+	border: solid black;
+	border-left: 5px;
+	border-right: 5px;
+	background-color: white;
+}
+
 .tabla{
 	color: black;
-	background-color: white;
 	border-collapse: collapse;
 	width: 98%;
 	margin: 1%;
 }
 
 .tabla thead tr{
-	background-color: cyan;
+	background-color: #ffb500;
+}
+
+.tabla td{
+	text-align: left;
+}
+
+.tabla tbody{
+	max-height: 100px;
+}
+
+.tabla tbody tr:nth-of-type(even){
+	background-color: lightgray;
+}
+.tabla tbody tr:hover{
+	background-color: #08001d;
+	color: #ffb500;
 }
 
 .tabla th,
 .tabla td{
 	border: 2px solid black;
-	padding: 3px;
-	text-align: left;
-	min-width: 60px;
-}
-
-.tabla tbody tr:nth-of-type(even){
-	background-color: rgb(225, 225, 225);
+	padding: 10px 12px;
 }
 
 .tabla th,
-.tabla tbody td:nth-of-type(6),
-.tabla tbody td:last-of-type{
-	max-width: 100px;
+.tabla tbody td:last-of-type,
+.tabla tbody td:first-of-type{
 	text-align: center;
+	min-width: 100px;
+}
+
+.fechaRow{
+	min-width: 100px;
+}
+
+.tabla button{
+	border: solid black;
+	width: 100%;
+	border-radius: 45px;
+	background-color: #ff3200;
 }

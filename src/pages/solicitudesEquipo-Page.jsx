@@ -1,10 +1,16 @@
 //	Dependencies
+import { useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 //	Styles
 import styles from "../styles/solicitudesEquipo-Page.module.css"
+import { extraerFecha } from "../utils/fecha";
 
-export function SolicitudesEquipo(){
+export function SolicitudesEquipo(props){
+	const [solicitudes, setSolicitudes] = useState([{}]);
+	const [refrescar, setRefrescar] = useState(false);
+
 	const navigate = useNavigate();
 	const toMenuPrincipal = () =>{
 		navigate("/menu-principal")
@@ -14,60 +20,99 @@ export function SolicitudesEquipo(){
 		navigate("/equipo/solicitar")
 	}
 
+	useEffect(()=>{
+		const peticion = async () => {
+			let res = await fetch("http://localhost:3001/solicitudes/equipo",{
+				method: "GET",
+				headers : {
+					idcuenta: props.sesion.idCuenta
+				}
+			})
+			let data = await res.json();
+			setSolicitudes(data);
+		}
 
+		if(props.sesion.acceso){
+			peticion()
+		}else{
+			navigate("/log-in/a");
+		}
+	},[props, navigate, refrescar])
+
+	if(solicitudes === undefined){
+		return(
+			<div>Cargando</div>
+		);
+	}
 	return (
 		<div className={styles.divContenedor}>
+			<div className={styles.divBotones}>
+				<button type="button" onClick={toSolicitarEquipo}>Nueva Solicitud</button>
+				<button type="button" onClick={toMenuPrincipal}>Regresar</button>
+			</div>
 			<div className={styles.divPrincipal}>
 				<div className={styles.divH3}>
 					<h3>Equipo Solicitado</h3>
 				</div>
-				<table className={styles.tabla}>
-					<thead>
-						<tr>
-							<th>Cantidad (Pzs)</th>
-							<th>Descripción</th>
-							<th>Justificación</th>
-							<th>Fecha</th>
-							<th>Cancelar Solicitud</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>5</td>
-							<td>Descripción del material solicitado 1</td>
-							<td>Justificación del material solicitado 1</td>
-							<td>Fecha 1</td>
-							<td><button type="button">Cancelar</button></td>
-						</tr>
-						<tr>
-							<td>01</td>
-							<td>Descripción del material solicitado 2</td>
-							<td>Justificación del material solicitado 2</td>
-							<td>Fecha 2</td>
-							<td><button type="button">Cancelar</button></td>
-						</tr>
-						<tr>
-							<td>15</td>
-							<td>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</td>
-							<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
-							<td>18/06/2022</td>
-							<td><button type="button">Cancelar</button></td>
-						</tr>
-						<tr>
-							<td>1</td>
-							<td>Descripción del material solicitado 4</td>
-							<td>Justificación del material solicitado 4</td>
-							<td>Fecha 4</td>
-							<td><button type="button">Cancelar</button></td>
-						</tr>
-					</tbody>
-				</table>
-
-				<div className={styles.divBotones}>
-					<button type="button" onClick={toSolicitarEquipo}>Nueva Solicitud</button>
-					<button type="button" onClick={toMenuPrincipal}>Regresar</button>
+				<div className={styles.divTabla}>
+					<Informacion solis={solicitudes} refrescar={refrescar} setRefrescar={setRefrescar} />
 				</div>
 			</div>
 		</div>
 	);
+}
+
+function Informacion(props){
+	if(props.solis.length > 0){
+		return(
+			<table className={styles.tabla}>
+				<thead>
+					<tr>
+						<th>Cantidad (Pzs)</th>
+						<th>Descripción</th>
+						<th>Justificación</th>
+						<th>Fecha</th>
+						<th>Cancelar Solicitud</th>
+					</tr>
+				</thead>
+				<tbody>
+					{
+						props.solis.map((value,index)=>{
+							return(
+								<tr key={index}>
+									<td>{value.cantidad}</td>
+									<td>{value.descripcion}</td>
+									<td>{value.justificacion}</td>
+									<td className={styles.fechaRow}>{extraerFecha(value.date)}</td>
+									<td><button type="button" onClick={()=>{
+										eliminarSolicitud(value.idSolicitudesDeEquipo)
+										props.setRefrescar(!props.refrescar);
+									}}>Cancelar</button></td>
+								</tr>		
+							);
+						})
+					}
+				</tbody>
+			</table>
+		);
+	}else{
+		return(
+			<p><strong>No hay Solicitudes</strong></p>
+		);
+	}
+}
+
+async function eliminarSolicitud(idEliminar){
+	let res = await fetch("http://localhost:3001/solicitar/equipo",{
+		method: "DELETE",
+		headers : {
+			id: idEliminar
+		}
+	})
+
+	if(res.ok > 0){
+		alert("Eliminado");
+	}else{
+		alert("No se eliminó ningun elemento")
+	}
 }

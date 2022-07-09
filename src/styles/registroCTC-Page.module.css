@@ -1,28 +1,26 @@
 .divContenedor{
 	display: flex;
-	justify-content: center;
 	background-color: rgb(36, 36, 36);
-	color: black;
+	height: calc(100% - 105px);
+	justify-content: center;
 }
 
 .divPrincipal{
-	text-align: center;
-	width: 40%;
-	background-color: gray;
+	width: 60%;
+	min-width: 500px;
+	background-color: rgb(225, 225, 225);
 }
 
 .divBotones{
 	display: flex;
-	align-items: center;
-	flex-direction: column;
+	justify-content: space-evenly;
 	width: 96%;
 	margin: 2%;
 }
 
 .divBotones button{
-	margin: 1% 0%;
-	min-width: 50%;
-	max-width: 50%;
+	margin: 3% 0%;
+	width: 25%;
 }
 
 .divH3{
@@ -62,4 +60,14 @@
 .tabla input[type=text]{
 	width: 90%;
 	font-size: 18px;
+}
+
+.botonRegresar{
+	background-color: #ff3200;
+	border-radius: 45px;
+}
+
+.botonRegistrar{
+	background-color: #ffb500;
+	border-radius: 45px;
 }
