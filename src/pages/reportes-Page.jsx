@@ -23,35 +23,18 @@ export function Reportes(props){
 	return (
 		<div className={styles.divContenedor}>
 			<div className={styles.divBotones}>
-					<button type="button" onClick={toMenuPrincipal}>Regresar</button>
-				</div>
+				<button type="button" onClick={toMenuPrincipal}>Regresar</button>
+			</div>
 			<div className={styles.divPrincipal}>
 				<div className={styles.divH3}>
 					<h3>Generar Reportes</h3>
 				</div>
 				<div className={styles.seccionDiv}>
-					<div>Periodo:</div>
-					<table className={styles.tabla}>
-						<tbody>
-							<tr>
-								<td>desde: </td>
-								<td><input type="date" /></td>
-							</tr>
-							<tr>
-								<td>hasta:</td>
-								<td><input type="date" /></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div className={styles.seccionDiv}>
-					<div>
-						Reporte
-					</div>
+					<h4>Reporte general</h4>
 					<table className={styles.tabla}>
 						<thead>
 							<tr>
-								<th>Descripción</th>
+								<th>Reporte</th>
 								<th>Generar</th>
 							</tr>
 						</thead>
@@ -64,6 +47,33 @@ export function Reportes(props){
 								<td>Equipos</td>
 								<td><button type="button">Generar</button></td>
 							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div className={styles.seccionDiv}>
+					<h4>Por Fecha</h4>
+					<table className={styles.tabla}>
+						<thead>
+							<tr>
+								<th>desde</th>
+								<th>hasta</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><input type="date" /></td>
+								<td><input type="date" /></td>
+							</tr>
+						</tbody>
+					</table>
+					<table className={styles.tabla}>
+						<thead>
+							<tr>
+								<th>Reporte</th>
+								<th>Generar</th>
+							</tr>
+						</thead>
+						<tbody>
 							<tr>
 								<td>Solicitudes de equipo</td>
 								<td><button type="button">Generar</button></td>
@@ -83,3 +93,56 @@ export function Reportes(props){
 		</div>
 	);
 }
+
+/*
+<div className={styles.divContenedor}>
+<div className={styles.divBotones}>
+		<button type="button" onClick={toMenuPrincipal}>Regresar</button>
+	</div>
+<div className={styles.divPrincipal}>
+	<div className={styles.divH3}>
+		<h3>Generar Reportes</h3>
+	</div>
+	<div className={styles.seccionDiv}>
+		<table className={styles.tabla}>
+			<tbody>
+				<tr>
+					<td>Personal</td>
+					<td><button type="button">Generar</button></td>
+				</tr>
+				<tr>
+					<td>Equipos</td>
+					<td><button type="button">Generar</button></td>
+				</tr>
+				<tr>
+					<td>Solicitudes de equipo</td>
+					<td><button type="button">Generar</button></td>
+				</tr>
+				<tr>
+					<td>Solicitudes de mantenimiento</td>
+					<td><button type="button">Generar</button></td>
+				</tr>
+				<tr>
+					<td>Bitácoras de CTC's</td>
+					<td><button type="button">Generar</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div className={styles.seccionDiv}>
+		<table className={styles.tabla}>
+			<tbody>
+				<tr>
+					<td>desde: </td>
+					<td><input type="date" /></td>
+				</tr>
+				<tr>
+					<td>hasta:</td>
+					<td><input type="date" /></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+</div>
+*/

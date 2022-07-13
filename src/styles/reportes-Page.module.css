@@ -5,16 +5,18 @@
 }
 
 .divPrincipal{
-	text-align: center;
-	min-width: 50%;
+	width: 60%;
+	height: 100%;
 	background-color: white;
+	overflow: auto;
 }
 
 .divBotones{
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	width: 15%;
+	width: 10%;
+	min-width: 150px;
 	margin: 5% 5%;
 }
 
@@ -29,10 +31,16 @@
 }
 
 .divH3{
-	width: 100%;
+	width: 90%;
 	text-align: left;
-	padding: 0% 2%;
+	padding: 0% 5%;
 	margin: 0px;
+}
+
+.divH3 h3{
+	height: fit-content;
+	margin: 0px;
+	margin-top: 5%;
 }
 
 .seccionDiv{
@@ -40,11 +48,16 @@
 	margin: 5% 10%;
 }
 
+.seccionDiv h4{
+	margin: 0px;
+}
+
 .tabla{
 	color: black;
 	border-collapse: collapse;
 	width: 98%;
 	margin: 1%;
+	margin-bottom: 5%;
 }
 
 .tabla thead tr{
