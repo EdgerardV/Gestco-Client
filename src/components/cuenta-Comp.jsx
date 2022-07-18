@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 
 //	Styles
 import styles from '../styles/cuenta-Comp.module.css'
-import imagenUsuario from '../images/logo512.png'
 
 // Ubicacion = 0 : Menu principal
 // Ubicacion = 1 : Navbar
@@ -33,7 +32,6 @@ export function Cuenta(props){
 	if(props.sesion.acceso){
 		return(
 			<div className={estilosPerfil[props.ubicacion]}>
-				<img className={estilosFoto[props.ubicacion]} src={imagenUsuario} alt="imagen del usuario" />
 				<div className={styles.botones}>
 					<button className={estilosUsuario[props.ubicacion]} type="button">{props.sesion.nombres}</button>
 					<button className={estilosSalir[props.ubicacion]} type="button" onClick={toHome}>Salir</button>

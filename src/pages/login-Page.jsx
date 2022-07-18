@@ -27,7 +27,6 @@ export function LogIn(props){
 				}
 			})
 			let coincide = await res.json();
-	
 			if(coincide.acceso){
 				props.setSesion(coincide)
 				navigate("/menu-principal")
