@@ -1,0 +1,5 @@
+
+#renombrar el archivo a ".env"
+#sustituir los valores por la dirección ip y el puerto en el que de la computadora en la que se ejecuta el servidor
+REACT_APP_API_HOST = Gestco_serv_Local_iP
+REACT_APP_API_PORT = Gestco_serv_Port

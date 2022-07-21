@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import styles from "../styles/miEquipo-Comp.module.css"
 
 export function MiEquipo(props){
-	const [equipo, setEquipo] = useState(["","","",""]);
+	const [equipo, setEquipo] = useState([]);
 	const navigate = useNavigate()
 	useEffect(()=>{
 		const peticion = async () =>{
@@ -26,7 +26,10 @@ export function MiEquipo(props){
 			navigate('/log-in/a')
 		}
 	},[navigate,props])
-
+	
+	if(equipo.error === true){
+		return(<div>No hay equipos</div>)
+	}
 	return (
 		<table className={styles.tabla}>
 			<thead>

@@ -7,6 +7,7 @@
 .divPrincipal{
 	text-align: center;
 	background-color: rgb(225, 225, 225);
+	width: 80%;
 }
 
 .divBotones{
@@ -14,8 +15,7 @@
 	align-items: center;
 	flex-direction: column;
 	min-width: 200px;
-	width: 20%;
-	margin: 0% 4%;
+	width: 15%;
 }
 
 .divBotones button{
@@ -63,7 +63,7 @@
 }
 
 .tabla tbody tr:nth-of-type(even){
-	background-color: rgb(150, 150, 150);
+	background-color: rgb(200, 200, 200);
 }
 .tabla tbody tr:hover{
 	background-color: #08001d;
@@ -80,6 +80,10 @@
 .tabla tbody td:last-of-type,
 .tabla tbody td:first-of-type{
 	text-align: center;
+}
+
+.fechaCampo{
+	white-space: nowrap;
 }
 
 .tabla button{

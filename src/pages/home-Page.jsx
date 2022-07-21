@@ -15,7 +15,7 @@ export function Home(){
 	return (
 		<div className={styles.fondo}>
 			<div>
-				<h1>Iniciar Sesión</h1>
+				<h1>Inicio</h1>
 			</div>
 			<div className={styles.divBotones}>
 				<button className={`${styles.botones} ${styles.loginBtn}`} type='button' onClick={toLogin}>Iniciar Sesión</button>

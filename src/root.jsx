@@ -22,7 +22,6 @@ import { RegistroCTC } from './pages/registroCTC-Page';
 //Styles
 import styles from './styles/index.css';
 
-
 export function Root(){
 	const [sesion, setSesion] = useState({
 		idCuenta: "",

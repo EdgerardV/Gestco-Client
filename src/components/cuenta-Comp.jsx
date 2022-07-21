@@ -10,11 +10,14 @@ export function Cuenta(props){
 	let estilosPerfil = [styles.divPerfil,styles.divPerfilNavbar];
 	let estilosUsuario = [styles.btnUsuario,styles.btnUsuarioNavbar];
 	let estilosSalir = [styles.btnSalir,styles.btnSalirNavbar];
-	let estilosFoto = [styles.imgUser,styles.imgUserNavbar];
 
 	const navigate = useNavigate();
 	const toLogin = () =>{
 		navigate("/log-in");
+	}
+
+	const toMenuPrincipal = () =>{
+		navigate("/menu-principal")
 	}
 
 	const toHome = () =>{
@@ -33,7 +36,7 @@ export function Cuenta(props){
 		return(
 			<div className={estilosPerfil[props.ubicacion]}>
 				<div className={styles.botones}>
-					<button className={estilosUsuario[props.ubicacion]} type="button">{props.sesion.nombres}</button>
+					<button className={estilosUsuario[props.ubicacion]} type="button" onClick={toMenuPrincipal}>{props.sesion.nombres}</button>
 					<button className={estilosSalir[props.ubicacion]} type="button" onClick={toHome}>Salir</button>
 				</div>
 			</div>

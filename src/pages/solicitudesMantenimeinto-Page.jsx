@@ -1,6 +1,7 @@
 //	Dependencies
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"
+import { extraerFecha } from '../utils/fecha.js'
 
 //	Styles
 import styles from "../styles/solicitudesMantenimiento-Page.module.css"
@@ -59,6 +60,7 @@ export function SolicitudesMantenimiento(props){
 								<th>Tipo de Problema</th>
 								<th>Condición</th>
 								<th>Descripción</th>
+								<th>Fecha</th>
 								<th>Cancelar Solicitud</th>
 							</tr>
 						</thead>
@@ -70,6 +72,7 @@ export function SolicitudesMantenimiento(props){
 											<td>{value.problema}</td>
 											<td>{value.condicion}</td>
 											<td>{value.descripcion}</td>
+											<td className={styles.fechaCampo}>{extraerFecha(value.fecha)}</td>
 											<td><button type="button" onClick={()=>{
 												eliminarSolicitud(value.idInformeMantenimiento)
 												setRefrescar(!refrescar);
