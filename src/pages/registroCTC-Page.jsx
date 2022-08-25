@@ -7,15 +7,14 @@ import styles from "../styles/registroCTC-Page.module.css"
 //	Code 
 export function RegistroCTC(){
 	const navigate = useNavigate();
+	
 	const toMenuPrincipal = () =>{
 		navigate("/ctc/bitacora")
 	}
 
 	const registrarse = async ev => {
 		ev.preventDefault();
-		console.log(
-			
-		)
+
 		let cuerpo = {
 			matricula: ev.target.matricula.value,
 			nombres: ev.target.nombres.value + " " + ev.target.aPaterno.value + " " + ev.target.aMaterno.value,
@@ -80,9 +79,30 @@ export function RegistroCTC(){
 								<td>Licenciatura</td>
 								<td>
 									<select name="licenciatura">
-										<option value="Ingenieria en sistemas">Ingenieria en sistemas</option>
-										<option value="Comunicación">Comunicación</option>
+										<option value="Administración de Empresas">Administración de Empresas</option>
+										<option value="Administración de Empresas Turísticas">Administración de Empresas Turísticas</option>
+										<option value="Administración de Negocios">Administración de Negocios</option>
+										<option value="Administración Empresarial">Administración Empresarial</option>
+										<option value="Administración y Dirección Empresarial">Administración y Dirección Empresarial</option>
+										<option value="Arquitectura">Arquitectura</option>
+										<option value="Ciencias y Técnicas de la Comunicación">Ciencias y Técnicas de la Comunicación</option>
+										<option value="Comercio y Negocios Internacionales">Comercio y Negocios Internacionales</option>
+										<option value="Contabilidad Financiera">Contabilidad Financiera</option>
+										<option value="Contabilidad y Finanzas">Contabilidad y Finanzas</option>
 										<option value="Derecho">Derecho</option>
+										<option value="Derecho y Ciencias Jurídicas">Derecho y Ciencias Jurídicas</option>
+										<option value="Diseño Gráfico Digital">Diseño Gráfico Digital</option>
+										<option value="Educación">Educación</option>
+										<option value="Educación Física, Recreación y Deporte">Educación Física, Recreación y Deporte</option>
+										<option value="Educación y Tecnologías para el Aprendizaje">Educación y Tecnologías para el Aprendizaje</option>
+										<option value="Ingeniería de Software y Sistemas Computacionales">Ingeniería de Software y Sistemas Computacionales</option>
+										<option value="Juicios Orales">Juicios Orales</option>
+										<option value="Mercadotecnia">Mercadotecnia</option>
+										<option value="Mercadotécnia Estratégica">Mercadotécnia Estratégica</option>
+										<option value="Mercadotecnia y Medios Digitales">Mercadotecnia y Medios Digitales</option>
+										<option value="Negocios Internacionales">Negocios Internacionales</option>
+										<option value="Psicología">Psicología</option>
+										<option value="Tecnologías de la Información y Comunicación">Tecnologías de la Información y Comunicación</option>
 									</select>
 								</td>
 							</tr>

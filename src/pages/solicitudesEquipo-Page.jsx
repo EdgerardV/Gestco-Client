@@ -1,10 +1,10 @@
 //	Dependencies
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 //	Styles
 import styles from "../styles/solicitudesEquipo-Page.module.css"
+
 import { extraerFecha } from "../utils/fecha";
 
 export function SolicitudesEquipo(props){

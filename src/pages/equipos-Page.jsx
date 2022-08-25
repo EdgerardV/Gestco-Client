@@ -1,12 +1,16 @@
-//	Styles
+//	Dependencies
 import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+// Components
 import { EquipoSideBar } from "../components/equipoSideBar-Comp";
 import { MasEquipos } from "../components/masEquipos-Comp";
 import { MiEquipo } from "../components/miEquipo-Comp";
-import styles from "../styles/equipos-Page.module.css"
 import { EquipoMasInformacion } from "./equipoMasInformacion-Page";
+
+//	Styles
+import styles from "../styles/equipos-Page.module.css"
 
 export function Equipos(props){
 	const [seleccion, setSeleccion] = useState(0)

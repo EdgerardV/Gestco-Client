@@ -1,9 +1,12 @@
-//	Styles
+//	Dependencies
 import { useNavigate } from 'react-router-dom';
+
+//	Styles
 import styles from '../styles/home-Page.module.css'
 
 export function Home(){
 	const navigate = useNavigate();
+	
 	const toLogin = () => {
 		navigate("/log-in");
 	}

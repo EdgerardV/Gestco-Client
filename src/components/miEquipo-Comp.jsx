@@ -30,6 +30,7 @@ export function MiEquipo(props){
 	if(equipo.error === true){
 		return(<div>No hay equipos</div>)
 	}
+	
 	return (
 		<table className={styles.tabla}>
 			<thead>

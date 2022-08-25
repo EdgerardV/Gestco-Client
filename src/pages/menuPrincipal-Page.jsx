@@ -1,5 +1,8 @@
 //Modules
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+
+//	Componentes
 import { Cuenta } from "../components/cuenta-Comp";
 
 // Styles
@@ -11,7 +14,6 @@ import solicitudesEquipoIcon from "../images/SolicitudesEquipo_icon.png"
 import solicitudesMantenimientoIcon from "../images/SolicitudesMantenimiento_icon.png"
 import GenerarReportesIcon from "../images/GenerarReportes_icon.png"
 import BitacoraCTCsIcon from "../images/BitacoraCTCs_icon.png"
-import { useEffect } from "react";
 
 // Code
 export function MenuPrincipal(props){
